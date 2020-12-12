@@ -8,20 +8,22 @@
                     <img src="/images/user.png" style="max-width: 100%; max-height: 100px;" alt="">
                 @endif
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-md-8">
                 <h5>{{ $prospect->name }}</h5>
-                <ul>
+                <ul class="list-style-none">
                     <li><strong>Email:</strong> {{ $prospect->email}}</li>
                     <li><strong>Date Added:</strong> {{ $prospect->pretty_created }}</li>
                 </ul>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-md-2">
                 <div class="dropdown d-block">
-                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-outline-secondary btn-block btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Actions
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="{{ route('admin.prospects.edit', ['prospect' => $prospect->id]) }}">Edit</a>
+                        <a class="dropdown-item" href="{{ route('admin.prospects.edit', ['prospect' => $prospect->id]) }}">Edit</a>
+                        <a class="dropdown-item" href="{{ route('admin.prospects.activities.dashboard', ['prospect' => $prospect->id]) }}">View Activity</a>
+
                     </div>
                 </div>
             </div>

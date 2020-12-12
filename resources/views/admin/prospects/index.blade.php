@@ -19,9 +19,7 @@
                               Actions
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="{{ route('admin.prospects.create') }}">Create Prospect</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="{{ route('admin.prospects.create') }}">Create Prospect</a>
                             </div>
                         </div>
                     </div>

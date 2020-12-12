@@ -10903,3 +10903,8 @@ a.text-dark:focus {
   }
 }
 
+ul.list-style-none {
+  list-style: none;
+  padding-left: 0;
+}
+
