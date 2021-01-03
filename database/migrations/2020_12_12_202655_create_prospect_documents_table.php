@@ -16,7 +16,7 @@ class CreateProspectDocumentsTable extends Migration
         Schema::create('prospect_documents', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('prospect_id');
-            $table->unsignedInteger('activity_id')->nullable();
+            $table->string('name');
             $table->text('notes')->nullable();
             $table->string('path');
             $table->timestamps();

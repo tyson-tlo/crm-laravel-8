@@ -21,7 +21,8 @@
                       Actions
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{{ route('admin.prospects.edit', ['prospect' => $prospect->id]) }}">Edit</a>
+                        <a href="{{ route('admin.prospects.prospect.dashboard', ['prospect' => $prospect->id]) }}" class="dropdown-item">Prospect Dashboard</a>
+                        <a class="dropdown-item" href="{{ route('admin.prospects.edit', ['prospect' => $prospect->id]) }}">Edit Prospect</a>
                         <a class="dropdown-item" href="{{ route('admin.prospects.activities.dashboard', ['prospect' => $prospect->id]) }}">View Activity</a>
 
                     </div>

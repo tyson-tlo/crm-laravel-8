@@ -12,7 +12,9 @@ class ProspectActivitiesController extends Controller
 {
     public function index(Prospect $prospect)
     {
-        return view('admin.prospects.activities.index', compact('prospect'));
+        return view('admin.prospects.activities.index',
+                        ['activities' => ProspectActivity::prospectId($prospect->id)->latest()->paginate(10),
+                        'prospect' => $prospect]);
     }
 
     public function create(Prospect $prospect)
@@ -30,19 +32,11 @@ class ProspectActivitiesController extends Controller
             'notes' => $request->notes
         ]);
 
-        if ($request->hasFile('documents')) {
-            $files = $request->file('documents');
-
-            foreach($files as $document) {
-                $path = $document->store('public/prospects/' . $prospect->id . '/documents');
-                $doc = ProspectDocument::create([
-                    'prospect_id' => $prospect->id,
-                    'activity_id' => $activity->id,
-                    'path' => $path
-                ]);
-            }
-        }
-
         return redirect()->route('admin.prospects.activities.dashboard', $prospect->id)->with('success', 'successfully created activity');
+    }
+
+    public function show(Prospect $prospect, ProspectActivity $activity)
+    {
+        return view('admin.prospects.activities.show', ['prospect' => $prospect, 'activity' => $activity]);
     }
 }
